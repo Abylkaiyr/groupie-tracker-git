@@ -1,0 +1,184 @@
+html {
+    font-size: 62.5%;
+}
+
+
+
+body {
+    
+    font-size: 1.6rem;
+    display: block;  
+    margin: 0;    
+    min-width: 320px;
+}
+
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    background-color: aqua;  
+   
+    
+}
+
+
+.header > .first {
+    margin: 0 auto;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header > .second {
+    margin: 0 auto;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header > .second > .img > .alem-logo {
+    height: 100px;
+    border-radius: 50%;
+}
+
+
+.header > .third {
+    margin: 0 auto;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+
+.main-page  {
+    display: grid;
+    grid-gap: 1em;
+    justify-content: center;
+    text-align: center;
+    
+}
+
+.main-page > .form > .artist {
+    margin-top: 1em;
+    border: 2px solid black; 
+    border-radius: 10%;
+    width: 300px; 
+    min-width: 300px;
+    height: 340px;      
+}
+
+.main-page > .form {
+    margin: 0 auto;
+}
+
+.main-page > .form > .artist > .artist-img > .artist-image {
+    border-radius: 50%;
+    margin-top: 0.5em;
+}
+
+
+
+
+/* onlu button */
+
+/* CSS */
+.button1 {
+  background-color: #36A9AE;
+  background-image: linear-gradient(#37ADB2, #329CA0);
+  border: 1px solid #2A8387;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 1px;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: block;
+  font-family: -apple-system,".SFNSDisplay-Regular","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 17px;
+  line-height: 100%;
+  margin: 0 auto;
+  margin-top: 1em;
+  outline: 0;
+  padding: 11px 15px 12px;
+  text-align: center;
+  transition: box-shadow .05s ease-in-out,opacity .05s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  /* width: 50%; */
+
+}
+
+.button1:hover {
+  box-shadow: rgba(255, 255, 255, 0.3) 0 0 2px inset, rgba(0, 0, 0, 0.4) 0 1px 2px;
+  text-decoration: none;
+  transition-duration: .15s, .15s;
+}
+
+.button1:active {
+  box-shadow: rgba(0, 0, 0, 0.15) 0 2px 4px inset, rgba(0, 0, 0, 0.4) 0 1px 1px;
+}
+
+.button1:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.button1:disabled:active {
+  pointer-events: none;
+}
+
+.button1:disabled:hover {
+  box-shadow: none;
+}
+
+
+/* filters */
+
+.filters-bar {
+   
+    display: grid;
+   justify-content: center;
+    text-align: center;
+  border: 2px solid black;
+ 
+}
+
+
+.searchbar {
+    text-align: center;
+    margin-top: 1em;
+}
+
+.searchbar input {
+    font-size: 18px;
+    width: 350px;
+    padding: 6px;
+    border-color: #36A9AE;  
+}
+
+
+@media only screen and (min-width: 640px) {
+    .main-page {
+        grid-template-columns: repeat(2, 1fr);
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width: 1100px) {
+    .main-page {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: center;
+    }
+}
+
+
+@media only screen and (min-width: 1400px) {
+    .main-page {
+        grid-template-columns: repeat(4, 1fr);
+        text-align: center;
+    }
+}

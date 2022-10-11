@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/ui/styles/index.css" />
+    <link rel="stylesheet" href="/ui/styles/filters.css" />
+    <link rel="icon" type="image/x-icon" href="/ui/utilities/favicon.jpg" />
+
+    <title>Groupie</title>
+  </head>
+  <body>
+    <div class="header">
+      <div class="first">
+        <div class="Abeke">Abylkaiyr</div>
+        <div class="Dake">ZakirAvrora</div>
+      </div>
+      <div class="second">
+        <div class="img">
+          <img
+            src="/ui/utilities/download.png"
+            alt="alem-logo"
+            class="alem-logo"
+          />
+        </div>
+
+        <div class="groupie">
+          <div class="name">Groupie Tracker</div>
+        </div>
+      </div>
+      <div class="third">Alem 01, AStana Hub, Astana KZ..</div>
+    </div>
+
+    <form action="/search" method="get">
+      <div class="searchbar">
+        <input
+          list="infolist"
+          type="text"
+          name="searchtag"
+          placeholder="Search"
+          required
+        />
+        <datalist id="infolist" class="list">
+          {{range .SearchArtists}}
+          <option value="{{.Name}}">{{.Name}} - Artist/Band</option>
+          {{range .Members}}
+          <option value="{{.}}">{{.}} - Member</option>
+          {{end}}
+          <option value="{{.CreationDate}}">
+            {{.CreationDate}} - Creation Date
+          </option>
+          <option value="{{.FirstAlbum}}">{{.FirstAlbum}} - First Album</option>
+          {{end}} {{range .UniqueLocations}}
+          <option value="{{.}}">{{.}} - Location</option>
+          {{end}}
+        </datalist>
+      </div>
+      <button type="submit" class="button1">Search</button>
+    </form>
+
+    <form action="/filters" method="get">
+      <div class="filters">
+        <div class="creationDate">
+          <div class="creationDateFrom">
+            <div class="text">
+              <h3>Creation Date From:</h3>
+            </div>
+
+            <input
+              type="range"
+              value="1955"
+              min="1955"
+              max="2020"
+              name="creationDateFrom"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output class="year">1955</output>
+          </div>
+
+          <div class="creationDateTo">
+            <div class="text">
+              <h3>Creation Date To:</h3>
+            </div>
+
+            <input
+              type="range"
+              value="2020"
+              min="1960"
+              max="2020"
+              name="creationDateTo"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output class="year">2020</output>
+          </div>
+        </div>
+
+        <div class="firstAlbum">
+          <div class="firstAlbumFrom">
+            <div class="text">
+              <h3>First Album Date From:</h3>
+            </div>
+
+            <input
+              type="range"
+              value="1960"
+              min="1960"
+              max="2020"
+              name="firstReleaseFrom"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output class="year">1960</output>
+          </div>
+
+          <div class="firstAlbumTo">
+            <div class="text">
+              <h3>First Album Date To:</h3>
+            </div>
+
+            <input
+              type="range"
+              value="2020"
+              min="1960"
+              max="2020"
+              name="firstReleaseTo"
+              oninput="this.nextElementSibling.value = this.value"
+            />
+            <output class="year">2020</output>
+          </div>
+        </div>
+
+        <div class="groupMembers">
+          <h3>Number of Group Members</h3>
+          <label class="container"
+            >1
+            <input name="members" type="checkbox" value="1" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >2
+            <input name="members" type="checkbox" value="2" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >3
+            <input name="members" type="checkbox" value="3" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >4
+            <input name="members" type="checkbox" value="4" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >5
+            <input name="members" type="checkbox" value="5" />
+            <span class="checkmark"></span>
+          </label>
+          <label class="container"
+            >6
+            <input name="members" type="checkbox" value="6" />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <div class="filters-locations">
+          <h3>Choose location</h3>
+          <select name="Location" id="filterLocations">
+            <option value="">Any</option>
+            {{range .UniqueLocations}}
+            <option value="{{.}}">{{.}}</option>
+            {{end}}
+          </select>
+        </div>
+
+        <div class="button">
+          <input class="button1" type="submit" value="Filter by" />
+        </div>
+      </div>
+    </form>
+
+    <div class="main-page">
+      {{range .Artists}}
+      <form action="detail" class="form">
+        <div class="artist">
+          <div class="artist-img">
+            <img src="{{.Image}}" alt="artist-image" class="artist-image" />
+          </div>
+          <div class="artist-name">{{.Name}}</div>
+          <div class="button">
+            <button class="button1" type="submit" name="id" value="{{.ID}}">
+              View Artist
+            </button>
+          </div>
+        </div>
+      </form>
+      {{end}}
+    </div>
+  </body>
+</html>

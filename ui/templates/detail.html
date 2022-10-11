@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ui/styles/detail.css">
+    <link rel="stylesheet" href="/ui/styles/mediaQueryDetails.css">
+    <title>Document</title>
+</head>
+<body class="body">
+    
+    <div class="detail-main">
+        <div class="artist-img">
+            <img src="{{.Image}}" alt="Artist-Image" class="Artist-Image">            
+        </div>
+        <div class="artists-name">
+            <h2>Name</h2>
+            {{.Name}}
+        </div>
+        <div class="artist-members">
+            <h2>Group Members</h2>
+            {{range .Members}}
+            {{.}}
+            {{end}}
+        </div>
+        <div class="creationDate">
+            <h2>Est.</h2>
+            {{.CreationDate}}
+        </div>
+        <div class="firstAlbum">
+            <h2>First Album</h2>
+            {{.FirstAlbum}}
+        </div>
+        <div class="ConcertDates">
+            <h2>Locations and Concert Dates</h2>
+            <table class="table">
+                <tr>                    
+                    <th>Location</th>
+                    <th>Dates</th>
+                </tr>
+                {{range $key, $value:= .DatesLocations.DatesLocations}}
+                <tr>          
+                    <td>           
+                        {{$key}}   
+                    </td>
+                    <td>
+                        {{range $val:= $value}}           
+                        {{$val}}   
+                        {{end}}
+                    </td>
+                </tr>
+                {{end}}
+            </table>
+        </div>
+        <div class="map">
+            <div id="map" class="map"></div>
+            <script>
+                let positions = {{.LongLat}};              
+                console.log(positions)
+                function initMap() {
+                    const map = new google.maps.Map(document.getElementById("map"), {
+                        center: {lat:39.698734, lng:-41.721619},
+                        zoom: 1.5,
+                        
+                        
+                    });
+                    for (pos of positions) {
+                        m = new google.maps.Marker({
+                            position: pos,
+                            map: map,
+                        });
+                    }
+                }
+              </script>
+              <script
+                async
+                defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDUaK5Jrw_3EFa0nS7q_btShDORnSf2EOs&callback=initMap"
+                renderWorldCopies: false
+              ></script>
+
+        </div>
+       
+    </div>         
+</body>
+</html>

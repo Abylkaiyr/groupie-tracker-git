@@ -1,0 +1,52 @@
+
+body {
+   
+    text-align: center;
+    margin: 0 auto;
+    background-image: url(/ui/utilities/backgroundDetails.jpg);
+    color: aliceblue;
+    min-width: 320px;
+    min-height: 480px;
+}
+
+.detail-main {
+    /* margin-top: 10em;*/
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+table, th, td {
+    border: 1px solid aliceblue;
+  } 
+
+
+.detail-main > .ConcertDates{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+}
+
+
+.detail-main > .artist-img > .Artist-Image {
+    margin-top: 1em;
+    border-radius: 50%;
+    width: 200px;
+}
+
+.detail-main > .map > .map{
+    align-items: center;
+    margin: 0 auto;
+}
+
+#map {
+    align-self: center;
+    height: 25vh;
+    width: 30vw;
+    
+}
